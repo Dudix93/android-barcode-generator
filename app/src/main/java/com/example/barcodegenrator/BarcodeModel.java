@@ -15,7 +15,7 @@ public class BarcodeModel implements Serializable {
 
     public void setId(int id) { this.id = id; }
 
-    public String gettext() { return text; }
+    public String getText() { return text; }
 
-    public void settext(String band) { this.text = text; }
+    public void setText(String band) { this.text = text; }
 }

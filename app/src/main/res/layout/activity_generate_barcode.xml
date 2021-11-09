@@ -13,41 +13,52 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/barcodeImageView"
+            android:id="@+id/barcode_image_view"
             android:layout_width="600dp"
             android:layout_height="200dp"
             android:layout_marginBottom="100dp"
             android:layout_centerHorizontal="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generateBarcodeButton"
+            app:layout_constraintTop_toBottomOf="@+id/generate_barcode_button"
             app:srcCompat="?attr/actionBarDivider"
-            android:contentDescription="@string/todo"
             />
 
         <EditText
-            android:id="@+id/barcodeTextEditText"
+            android:id="@+id/barcode_text_edit_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="@string/enter_the_text_here"
             android:inputType="textPersonName"
-            android:layout_below="@id/barcodeImageView"
+            android:layout_below="@id/barcode_image_view"
             android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"
             android:autofillHints="" />
 
         <Button
-            android:id="@+id/generateBarcodeButton"
+            android:id="@+id/generate_barcode_button"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:onClick="generateBarcode"
             android:text="@string/generate_barcode"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/barcodeTextEditText"
+            android:layout_below="@+id/barcode_text_edit_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/barcodeTextEditText" />
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/barcode_text_edit_text" />
+
+        <Button
+            android:id="@+id/save_barcode_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save_barcode"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/generate_barcode_button"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/generate_barcode_button" />
 
     </RelativeLayout>
 

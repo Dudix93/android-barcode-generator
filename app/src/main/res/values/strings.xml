@@ -2,5 +2,15 @@
     <string name="app_name">Barcode Genrator</string>
     <string name="enter_the_text_here">Enter the Text Here ...</string>
     <string name="generate_barcode">Generate barcode</string>
-    <string name="todo">TODO</string>
+    <string name="save_barcode">Save barcode</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="ok">Ok</string>
+    <string name="barcode_delete">Delete barcode?</string>
+    <string name="barcode_deleted">Barcode deleted</string>
+    <string name="barcode_updated">Barcode updated</string>
+    <string name="barcode_saved">Barcode saved</string>
+    <string name="barcode_exists">Such barcode already exists</string>
+    <string name="barcodes_list_variable">barcodes_list</string>
 </resources>

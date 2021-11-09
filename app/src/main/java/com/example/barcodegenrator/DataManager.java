@@ -19,7 +19,8 @@ public class DataManager {
         }
         return ourInstance;
     }
-    public static void loadBarcodesFromDatabase(DBHelper dbHelper, Cursor cursor) {
+
+    public static void loadBarcodesFromDatabase(DBHelper dbHelper) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         DataManager dm = getInstance();
         final String[] barcodesColumns = {
@@ -28,15 +29,15 @@ public class DataManager {
         };
         dm.barcodessCursor = db.query(BarcodeEntry.TABLE_NAME, barcodesColumns, null, null, null, null, null);
         
-        int barcodeIdPos = cursor.getColumnIndex(BarcodeEntry.COL_BARCODE_ID);
-        int barcodeTextPos = cursor.getColumnIndex(BarcodeEntry.COL_BARCODE_TEXT);
+        int barcodeIdPos = dm.barcodessCursor.getColumnIndex(BarcodeEntry.COL_BARCODE_ID);
+        int barcodeTextPos = dm.barcodessCursor.getColumnIndex(BarcodeEntry.COL_BARCODE_TEXT);
 
         dm.barcodesList.clear();
-        while (cursor.moveToNext()) {
-            int barcodeId = cursor.getInt(barcodeIdPos);
-            String barcodeText = cursor.getString(barcodeTextPos);
+        while (dm.barcodessCursor.moveToNext()) {
+            int barcodeId = dm.barcodessCursor.getInt(barcodeIdPos);
+            String barcodeText = dm.barcodessCursor.getString(barcodeTextPos);
             dm.barcodesList.add(new BarcodeModel(barcodeId, barcodeText));
         }
-        cursor.close();
+        dm.barcodessCursor.close();
     }
 }
