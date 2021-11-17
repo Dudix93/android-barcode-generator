@@ -2,10 +2,12 @@ package com.example.barcodegenrator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +19,7 @@ import androidx.fragment.app.DialogFragment;
 import java.util.ArrayList;
 
 public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
-    private ArrayList<BarcodeModel> dataSet;
+    private Bitmap bitmap;
     Context mContext;
 
     private static class ViewHolder {
@@ -27,7 +29,6 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
 
     public BarcodesAdapter(ArrayList<BarcodeModel> data, Context context){
         super(context, R.layout.array_list_item_barcode, data);
-        this.dataSet = data;
         this.mContext = context;
     }
 
@@ -51,10 +52,16 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
         }
 
             viewHolder.barcode_text.setText(barcodeModel.getText());
-//            new BarcodeGenerator().generateBarcode(viewHolder.barcode, barcodeModel.getText());
-            viewHolder.barcode.setImageResource(R.drawable.ic_qr_code);
 
-
+            viewHolder.barcode.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    if (viewHolder.barcode.getDrawable() == null) {
+                        bitmap = new BarcodeGenerator().generateBarcode(viewHolder.barcode, barcodeModel.getText());
+                        viewHolder.barcode.setImageBitmap(bitmap);
+                    }
+                }
+            });
 
         view.findViewById(R.id.barcode_entry).setOnLongClickListener(new View.OnLongClickListener() {
 
