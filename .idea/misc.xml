@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/projekty/android-barcode-generator/app/src/main/res/layout/activity_barcodes.xml" value="0.2758152173913043" />
-        <entry key="..\:/projekty/android-barcode-generator/app/src/main/res/layout/array_list_item_barcode.xml" value="0.1" />
+        <entry key="..\:/projekty/android-barcode-generator/app/src/main/res/layout/array_list_item_barcode.xml" value="0.33" />
+        <entry key="..\:/projekty/android-barcode-generator/app/src/main/res/layout/barcode_popup.xml" value="0.33" />
+        <entry key="..\:/projekty/android-barcode-generator/app/src/main/res/layout/popup_barcode.xml" value="0.26358695652173914" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>

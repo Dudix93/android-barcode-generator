@@ -4,19 +4,12 @@
     android:layout_height="wrap_content"
     android:id="@+id/barcode_entry">
 
-            <ImageView
-                android:id="@+id/barcode_image_view_list_item"
-                android:layout_width="600dp"
-                android:layout_height="200dp"
-                android:layout_centerHorizontal="true"
-                />
-
             <TextView
                 android:id="@+id/barcode_text_text_view_list_item"
-                android:layout_below="@id/barcode_image_view_list_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="123456"
+                android:gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"

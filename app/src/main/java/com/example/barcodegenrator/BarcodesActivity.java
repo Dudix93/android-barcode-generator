@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BarcodesActivity extends AppCompatActivity {
+public class BarcodesActivity extends AppCompatActivity implements BarcodeListener {
 
     private ArrayList<BarcodeModel> barcodesList;
     private ArrayList<String> barcodesValuesList;
@@ -68,7 +68,7 @@ public class BarcodesActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
-    protected void deleteBarcode(int gigId) {
+    public void deleteBarcode(int gigId) {
         db = dbHelper.getWritableDatabase();
         dbHelper.deleteBarcode(db, gigId);
         loadData();
