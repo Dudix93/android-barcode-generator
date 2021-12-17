@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.barcodegenrator">
+    package="com.example.barcodegenerator">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarcodeGenrator">
         <activity
-            android:name=".BarcodesActivity"
+            android:name="com.example.barcodegenerator.BarcodesActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GenerateBarcodeActivity"
+            android:name="com.example.barcodegenerator.GenerateBarcodeActivity"
             android:exported="true">
         </activity>
     </application>

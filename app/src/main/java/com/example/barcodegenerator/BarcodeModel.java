@@ -1,4 +1,4 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 import java.io.Serializable;
 

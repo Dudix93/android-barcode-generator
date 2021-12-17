@@ -1,4 +1,4 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

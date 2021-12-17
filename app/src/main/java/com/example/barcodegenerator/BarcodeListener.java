@@ -1,4 +1,4 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 public interface BarcodeListener {
 

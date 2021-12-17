@@ -1,4 +1,4 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import androidx.fragment.app.DialogFragment;
-import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 

@@ -1,10 +1,9 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataManager {
     private static DataManager ourInstance = null;

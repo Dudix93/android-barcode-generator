@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Barcode Genrator</string>
+    <string name="app_name">Barcode Generator</string>
     <string name="enter_the_text_here">Enter the Text Here ...</string>
     <string name="generate_barcode">Generate barcode</string>
     <string name="save_barcode">Save barcode</string>

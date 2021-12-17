@@ -1,4 +1,4 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 class BarcodeEntry {
     public static final String TABLE_NAME = "Barcode";

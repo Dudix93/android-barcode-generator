@@ -1,4 +1,4 @@
-package com.example.barcodegenrator;
+package com.example.barcodegenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.widget.ListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BarcodesActivity extends AppCompatActivity implements BarcodeListener {
 
