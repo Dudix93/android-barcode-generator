@@ -61,11 +61,13 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
 
         barcodeImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_qr_code));
         generateBarcodeButton.setEnabled(barcodeTextEditText.getText().length() != 0);
+        saveBarcodeButton.setEnabled(barcodeTextEditText.getText().length() != 0);
 
         barcodeTextEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 generateBarcodeButton.setEnabled(charSequence.length() != 0);
+                saveBarcodeButton.setEnabled(charSequence.length() != 0);
             }
 
             @Override
@@ -74,6 +76,7 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 generateBarcodeButton.setEnabled(charSequence.length() != 0);
+                saveBarcodeButton.setEnabled(charSequence.length() != 0);
 
                 if (barcodesValuesList.size() != 0) {
                     for (String barcode : barcodesValuesList) {
@@ -105,20 +108,27 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
         saveBarcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db = dbHelper.getWritableDatabase();
-                values.put(BarcodeEntry.COL_BARCODE_TEXT, barcodeTextEditText.getText().toString());
-                if (barcodeModel != null) {
-                    db.update(BarcodeEntry.TABLE_NAME, values, BarcodeEntry.COL_BARCODE_ID + " = "+ barcodeModel.getId(), null);
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.barcode_updated), Toast.LENGTH_SHORT).show();
+                if (barcodeTextEditText.getText().length() != 0) {
+                    db = dbHelper.getWritableDatabase();
+                    values.put(BarcodeEntry.COL_BARCODE_TEXT, barcodeTextEditText.getText().toString());
+                    if (barcodeModel != null) {
+                        db.update(BarcodeEntry.TABLE_NAME, values, BarcodeEntry.COL_BARCODE_ID + " = "+ barcodeModel.getId(), null);
+                        makeToastMessage(R.string.barcode_updated);
+                    }
+                    else {
+                        db.insert(BarcodeEntry.TABLE_NAME, null, values);
+                        makeToastMessage(R.string.barcode_saved);
+                    }
+                    finish();
                 }
                 else {
-                    db.insert(BarcodeEntry.TABLE_NAME, null, values);
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.barcode_saved), Toast.LENGTH_SHORT).show();
+                    makeToastMessage(R.string.barcode_empty);                
                 }
-                finish();
             }
         });
     }
 
-
+    public void makeToastMessage(int resource) {
+        Toast.makeText(getApplicationContext(), getResources().getString(resource), Toast.LENGTH_SHORT).show();
+    }
 }
