@@ -80,7 +80,7 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
         barcode.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                    bitmap = new BarcodeGenerator().generateBarcode(barcode, barcodeModel.getText());
+                    bitmap = new BarcodeGenerator().generateBarcode(barcode.getHeight(), barcode.getWidth(), barcodeModel.getText());
                     barcode.setImageBitmap(bitmap);
             }
         });

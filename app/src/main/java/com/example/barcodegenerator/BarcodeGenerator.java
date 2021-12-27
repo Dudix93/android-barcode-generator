@@ -13,13 +13,13 @@ public class BarcodeGenerator {
 
     private Bitmap bitmap;
 
-    public Bitmap generateBarcode(ImageView barcodeImageView, String barcodeText){
+    public Bitmap generateBarcode(int height, int width, String barcodeText){
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(barcodeText, BarcodeFormat.CODE_128, barcodeImageView.getWidth(), barcodeImageView.getHeight());
-            bitmap = Bitmap.createBitmap(barcodeImageView.getWidth(), barcodeImageView.getHeight(), Bitmap.Config.RGB_565);
-            for (int i = 0; i<barcodeImageView.getWidth(); i++){
-                for (int j = 0; j<barcodeImageView.getHeight(); j++){
+            BitMatrix bitMatrix = multiFormatWriter.encode(barcodeText, BarcodeFormat.CODE_128, width, height);
+            bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            for (int i = 0; i < width; i++){
+                for (int j = 0; j < height; j++){
                     bitmap.setPixel(i,j,bitMatrix.get(i,j)? Color.BLACK:Color.WHITE);
                 }
             }

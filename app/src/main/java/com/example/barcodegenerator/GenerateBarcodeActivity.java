@@ -42,6 +42,10 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
         generateBarcodeButton = findViewById(R.id.generate_barcode_button);
         saveBarcodeButton = findViewById(R.id.save_barcode_button);
 
+
+        barcodeImageView.setMaxWidth( barcodeImageView.getWidth());
+        barcodeImageView.setMaxHeight( barcodeImageView.getHeight());
+
         if (getIntent().getExtras() != null) {
             if (getIntent().getExtras().getStringArrayList(getResources().getString(R.string.barcodes_list_variable)) != null) {
                 barcodesValuesList = getIntent().getExtras().getStringArrayList(getResources().getString(R.string.barcodes_list_variable));
@@ -94,7 +98,7 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
         generateBarcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bitmap = new BarcodeGenerator().generateBarcode(barcodeImageView, barcodeTextEditText.getText().toString());
+                bitmap = new BarcodeGenerator().generateBarcode(barcodeImageView.getHeight(), barcodeImageView.getWidth(), barcodeTextEditText.getText().toString());
                 barcodeImageView.setImageBitmap(bitmap);
             }
         });

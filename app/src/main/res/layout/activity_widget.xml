@@ -5,22 +5,12 @@
     tools:context=".BarcodesActivity"
     android:transitionGroup="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tutorials point"
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/barcode_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="30dp"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff3412ff"
-        android:textSize="35dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Widget"
-        android:id="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
-        android:layout_below="@+id/textView" />
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

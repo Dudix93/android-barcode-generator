@@ -25,14 +25,14 @@ public class BarcodesActivity extends AppCompatActivity implements BarcodeListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            loadData();
+            loadBarcodesValues();
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        loadData();
+        loadBarcodesValues();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class BarcodesActivity extends AppCompatActivity implements BarcodeListen
         setContentView(R.layout.activity_barcodes);
         dbHelper = new DBHelper(this);
         barcodesValuesList = new ArrayList<String>();
-        loadData();
+        loadBarcodesValues();
         FloatingActionButton fab = findViewById(R.id.add_barcode);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +53,7 @@ public class BarcodesActivity extends AppCompatActivity implements BarcodeListen
         });
     }
 
-    public void loadData() {
+    public void loadBarcodesValues() {
         listView = (ListView)findViewById(R.id.barcodes_list);
         dataManager = DataManager.getInstance();
         dataManager.loadBarcodesFromDatabase(dbHelper);
@@ -70,7 +70,7 @@ public class BarcodesActivity extends AppCompatActivity implements BarcodeListen
     public void deleteBarcode(int gigId) {
         db = dbHelper.getWritableDatabase();
         dbHelper.deleteBarcode(db, gigId);
-        loadData();
+        loadBarcodesValues();
         Snackbar.make(this.findViewById(android.R.id.content), R.string.barcode_deleted, 2000).show();
     }
 
