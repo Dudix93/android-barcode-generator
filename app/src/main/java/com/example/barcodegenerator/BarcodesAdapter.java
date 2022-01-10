@@ -23,6 +23,9 @@ import java.util.ArrayList;
 
 public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
     private Bitmap bitmap;
+    private TextView barcodeValueTextView;
+    private PopupWindow popupWindow;
+    private View popupView;
     Context mContext;
 
     private static class ViewHolder {
@@ -67,11 +70,11 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
     public void showBarcodePopup(View view, BarcodeModel barcodeModel) {
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View popupView = inflater.inflate(R.layout.popup_barcode, null);
+        popupView = inflater.inflate(R.layout.popup_barcode, null);
 
         int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.MATCH_PARENT;
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, true);
+        popupWindow = new PopupWindow(popupView, width, height, true);
 
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
 
@@ -82,6 +85,8 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
             public void onGlobalLayout() {
                     bitmap = new BarcodeGenerator().generateBarcode(barcode.getHeight(), barcode.getWidth(), barcodeModel.getText());
                     barcode.setImageBitmap(bitmap);
+                    barcodeValueTextView = popupView.findViewById(R.id.popup_barcode_value);
+                    barcodeValueTextView.setText(barcodeModel.getText());
             }
         });
 
@@ -104,6 +109,7 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
             public void onClick(View v) {
                 if (mContext instanceof BarcodesActivity) {
                     ((BarcodesActivity) mContext).editBarcode(barcodeModel);
+                    popupWindow.dismiss();
                 }
             }
         });
@@ -119,7 +125,9 @@ public class BarcodesAdapter extends ArrayAdapter<BarcodeModel>  {
                         args.putInt("msg", R.string.barcode_delete);
                         deleteGigFragment.setArguments(args);
                         deleteGigFragment.show(((BarcodesActivity) getContext()).getSupportFragmentManager(), "deleteGig");
+                        popupWindow.dismiss();
                     }
+
                 }
             }
         });
