@@ -5,12 +5,12 @@ The app allows to generate the barcodes, saving and browsing them on the device,
 
 [ZXing library](https://github.com/zxing/zxing) used for barcode image processing.
 
-|![watching](screenshots/barcodes_list.jpg)|![watching info](screenshots/barcodes_previow.jpg)|
+|![watching](<img src="screenshots/barcodes_list.jpg" alt="drawing" width="50%"/>)|![watching info](<img src="screenshots/barcode_preview.jpg" alt="drawing" width="50%"/>)|
 |--|--|
 
-|![watching](screenshots/new_barcode_intial.jpg)|![watching info](screenshots/new_barcode.jpg)|
+|![watching](<img src="screenshots/new_barcode_intial.jpg" alt="drawing" width="50%"/>)|![watching info](<img src="screenshots/new_barcode.jpg" alt="drawing" width="50%"/>)|
 |--|--|
 
 
-|![watching](screenshots/widget.jpg)|
+|![watching](<img src="screenshots/widget.jpg" alt="drawing" width="50%"/>)|
 |--|
