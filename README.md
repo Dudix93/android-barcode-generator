@@ -8,7 +8,7 @@ The app allows to generate the barcodes, saving and browsing them on the device,
 |<img src="screenshots/barcodes_list.jpg" alt="drawing" width="100%"/>|<img src="screenshots/barcode_preview.jpg" alt="drawing" width="100%"/>|
 |--|--|
 
-|<img src="screenshots/new_barcode_intial.jpg" alt="drawing" width="100%"/>|(<img src="screenshots/new_barcode.jpg" alt="drawing" width="100%"/>|
+|<img src="screenshots/new_barcode_intial.jpg" alt="drawing" width="100%"/>|<img src="screenshots/new_barcode.jpg" alt="drawing" width="100%"/>|
 |--|--|
 
 
