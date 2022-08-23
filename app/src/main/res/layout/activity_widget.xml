@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:layout_columnSpan="3"
+            android:textColor="@color/white"
             android:autoSizeTextType="uniform"
             android:autoSizeMinTextSize="5sp"
             android:autoSizeMaxTextSize="40sp" />
