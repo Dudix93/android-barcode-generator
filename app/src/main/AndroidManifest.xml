@@ -24,6 +24,11 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name="com.example.barcodegenerator.CaptureActivity"
+            android:exported="true">
+        </activity>
+
         <receiver android:name=".WidgetActivity">
 
             <intent-filter>

@@ -60,6 +60,17 @@
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@+id/generate_barcode_button" />
 
+        <Button
+            android:id="@+id/scan_with_camera_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/scan_with_camera"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/save_barcode_button"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/generate_barcode_button" />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,5 +13,6 @@
     <string name="barcode_saved">Barcode saved</string>
     <string name="barcode_exists">Such barcode already exists</string>
     <string name="barcodes_list_variable">barcodes_list</string>
-    <string name="barcode_empty">Yout can not save empty barcode</string>
+    <string name="barcode_empty">You can not save empty barcode</string>
+    <string name="scan_with_camera">Scan with camera</string>
 </resources>

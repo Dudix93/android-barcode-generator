@@ -1,5 +1,6 @@
 package com.example.barcodegenerator;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -15,6 +16,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
+
 import java.util.ArrayList;
 
 public class GenerateBarcodeActivity extends AppCompatActivity {
@@ -22,6 +26,7 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
     private ImageView barcodeImageView;
     private Button generateBarcodeButton;
     private Button saveBarcodeButton;
+    private Button scanWithCameraButton;
     private SQLiteDatabase db;
     private DBHelper dbHelper;
     private ContentValues values;
@@ -41,6 +46,7 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
         barcodeImageView = findViewById(R.id.barcode_image_view);
         generateBarcodeButton = findViewById(R.id.generate_barcode_button);
         saveBarcodeButton = findViewById(R.id.save_barcode_button);
+        scanWithCameraButton = findViewById(R.id.scan_with_camera_button);
 
 
         barcodeImageView.setMaxWidth( barcodeImageView.getWidth());
@@ -98,8 +104,7 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
         generateBarcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bitmap = new BarcodeGenerator().generateBarcode(barcodeImageView.getHeight(), barcodeImageView.getWidth(), barcodeTextEditText.getText().toString());
-                barcodeImageView.setImageBitmap(bitmap);
+                generateBarcode(barcodeTextEditText.getText().toString());
             }
         });
 
@@ -111,22 +116,50 @@ public class GenerateBarcodeActivity extends AppCompatActivity {
                     values.put(BarcodeEntry.COL_BARCODE_TEXT, barcodeTextEditText.getText().toString());
                     if (barcodeModel != null) {
                         db.update(BarcodeEntry.TABLE_NAME, values, BarcodeEntry.COL_BARCODE_ID + " = "+ barcodeModel.getId(), null);
-                        makeToastMessage(R.string.barcode_updated);
+                        makeToastMessage(getResources().getString(R.string.barcode_updated));
                     }
                     else {
                         db.insert(BarcodeEntry.TABLE_NAME, null, values);
-                        makeToastMessage(R.string.barcode_saved);
+                        makeToastMessage(getResources().getString(R.string.barcode_saved));
                     }
                     finish();
                 }
                 else {
-                    makeToastMessage(R.string.barcode_empty);                
+                    makeToastMessage(getResources().getString(R.string.barcode_empty));
                 }
+            }
+        });
+
+        scanWithCameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ScanOptions options = new ScanOptions();
+                options.setPrompt("Volume up to flash on");
+                options.setBeepEnabled(true);
+                options.setOrientationLocked(true);
+                options.setCaptureActivity(CaptureActivity.class);
+                barLaucher.launch(options);
             }
         });
     }
 
-    public void makeToastMessage(int resource) {
-        Toast.makeText(getApplicationContext(), getResources().getString(resource), Toast.LENGTH_SHORT).show();
+    ActivityResultLauncher<ScanOptions> barLaucher = registerForActivityResult(new ScanContract(), result->
+    {
+        if(result.getContents() != null)
+        {
+            barcodeTextEditText.setText(result.getContents());
+            generateBarcode(result.getContents());
+        }
+    });
+
+    public void generateBarcode(String barcodeText) {
+        if (barcodeText != null) {
+            bitmap = new BarcodeGenerator().generateBarcode(barcodeImageView.getHeight(), barcodeImageView.getWidth(), barcodeText);
+            barcodeImageView.setImageBitmap(bitmap);
+        }
+    }
+
+    public void makeToastMessage(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
