@@ -5,7 +5,7 @@
     android:id="@+id/widget_grid"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".BarcodesActivity"
+    tools:context=".activity.BarcodesActivity"
     android:background="@color/teal_700"
     android:rowCount="2"
     android:columnCount="3" >

@@ -11,7 +11,7 @@
         android:theme="@style/Theme.BarcodeGenrator">
 
         <activity
-            android:name="com.example.barcodegenerator.BarcodesActivity"
+            android:name="com.example.barcodegenerator.activity.BarcodesActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +20,16 @@
         </activity>
 
         <activity
-            android:name="com.example.barcodegenerator.GenerateBarcodeActivity"
+            android:name="com.example.barcodegenerator.activity.GenerateBarcodeActivity"
             android:exported="true">
         </activity>
 
         <activity
-            android:name="com.example.barcodegenerator.CaptureActivity"
+            android:name="com.example.barcodegenerator.activity.CaptureActivity"
             android:exported="true">
         </activity>
 
-        <receiver android:name=".WidgetActivity">
+        <receiver android:name=".activity.WidgetActivity">
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"></action>

@@ -1,7 +1,9 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.database;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.barcodegenerator.model.BarcodeModel;
 
 import java.util.ArrayList;
 

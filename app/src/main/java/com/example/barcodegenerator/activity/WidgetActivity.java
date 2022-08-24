@@ -1,4 +1,4 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.activity;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -6,13 +6,16 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RemoteViews;
-import android.widget.Toast;
+
+import com.example.barcodegenerator.BarcodeGenerator;
+import com.example.barcodegenerator.R;
+import com.example.barcodegenerator.database.DBHelper;
+import com.example.barcodegenerator.database.DataManager;
+import com.example.barcodegenerator.model.BarcodeModel;
 
 import java.util.ArrayList;
 
@@ -87,7 +90,7 @@ public class WidgetActivity extends AppWidgetProvider {
             Bundle awo = appWidgetManager.getAppWidgetOptions(currentWidgetId);
             int widgetHeight = awo.getInt("appWidgetMaxHeight");
             int widgetWidth = awo.getInt("appWidgetMaxWidth");
-            RemoteViews views = new RemoteViews(context.getPackageName(),R.layout.activity_widget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
             views.setOnClickPendingIntent(R.id.widget_next_barcode, getPendingSelfIntent(context, OnNextButtonClick));
             views.setOnClickPendingIntent(R.id.widget_previous_barcode, getPendingSelfIntent(context, OnPreviousButtonClick));
             bitmap = new BarcodeGenerator().generateBarcode(widgetHeight, widgetWidth, barcodesValuesList.get(barcodeId));

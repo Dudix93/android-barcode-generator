@@ -1,4 +1,4 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,6 +6,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+
+import com.example.barcodegenerator.BarcodeListener;
+import com.example.barcodegenerator.database.DBHelper;
+import com.example.barcodegenerator.database.DataManager;
+import com.example.barcodegenerator.R;
+import com.example.barcodegenerator.adapter.BarcodesAdapter;
+import com.example.barcodegenerator.model.BarcodeModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;

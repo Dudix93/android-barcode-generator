@@ -1,4 +1,4 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.activity;
 
 public class CaptureActivity extends com.journeyapps.barcodescanner.CaptureActivity {
 }

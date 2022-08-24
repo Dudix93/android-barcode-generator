@@ -1,4 +1,4 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.barcodegenerator.R;
+import com.example.barcodegenerator.activity.BarcodesActivity;
 
 public class DeleteDialogFragment extends DialogFragment {
     private int id;

@@ -1,6 +1,6 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.database;
 
-class BarcodeEntry {
+public class BarcodeEntry {
     public static final String TABLE_NAME = "Barcode";
     public static final String COL_BARCODE_ID = "Id";
     public static final String COL_BARCODE_TEXT = "Text";

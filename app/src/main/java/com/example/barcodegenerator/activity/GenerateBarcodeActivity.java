@@ -1,4 +1,4 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.activity;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.barcodegenerator.BarcodeGenerator;
+import com.example.barcodegenerator.R;
+import com.example.barcodegenerator.activity.CaptureActivity;
+import com.example.barcodegenerator.database.BarcodeEntry;
+import com.example.barcodegenerator.database.DBHelper;
+import com.example.barcodegenerator.model.BarcodeModel;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 

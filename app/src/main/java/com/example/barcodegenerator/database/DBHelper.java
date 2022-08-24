@@ -1,4 +1,4 @@
-package com.example.barcodegenerator;
+package com.example.barcodegenerator.database;
 
 import android.content.Context;
 import android.database.Cursor;
